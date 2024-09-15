@@ -1,0 +1,42 @@
+
+@startuml
+!define C4Context
+!define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!includeurl C4PlantUML
+
+title Smart Home System - Components Diagram
+
+'System container
+Container_Boundary(smartHomeSystem, "Smart Home System") {
+    Component(controller, "HeatingSystemController", "Spring REST Controller", "Handles heating system API")
+    Component(service, "HeatingSystemService", "Service", "Contains business logic for managing heating systems")
+    Component(repository, "HeatingSystemRepository", "Repository", "Interacts with the database for heating system")
+    Component(kafkaPublisher, "KafkaPublisher", "Kafka Producer", "Publishes events to Kafka")
+}
+
+'Telemetry Service
+Container_Boundary(telemetryService, "Telemetry Service") {
+    Component(telemetryProcessor, "TelemetryProcessor", "Service", "Processes telemetry data from sensors")
+    Component(kafkaConsumer, "KafkaConsumer", "Kafka Consumer", "Consumes telemetry data from Kafka")
+}
+
+'Devices Service
+Container_Boundary(devicesService, "Devices Service") {
+    Component(devicesManager, "DevicesManager", "Service", "Manages device states and operations")
+    Component(kafkaDevicesConsumer, "KafkaDevicesConsumer", "Kafka Consumer", "Consumes device updates from Kafka")
+}
+
+'Kafka
+System_Ext(kafka, "Kafka", "Event Streaming Platform")
+
+'Relationships between components
+Rel(controller, service, "Calls heating service to manage devices")
+Rel(service, repository, "Stores and retrieves data")
+Rel(service, kafkaPublisher, "Publishes events to Kafka")
+Rel(kafkaPublisher, kafka, "Sends events to Kafka")
+Rel(kafka, kafkaConsumer, "Telemetry data via Kafka topic")
+Rel(kafka, kafkaDevicesConsumer, "Device updates via Kafka topic")
+Rel(kafkaConsumer, telemetryProcessor, "Processes telemetry data")
+Rel(kafkaDevicesConsumer, devicesManager, "Processes device updates")
+
+@enduml

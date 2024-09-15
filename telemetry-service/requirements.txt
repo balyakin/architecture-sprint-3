@@ -1,0 +1,4 @@
+flask
+flask_kafka
+flask_swagger_ui
+kafka-python

@@ -1,0 +1,49 @@
+
+@startuml
+!define Table(x) class x as "x" << (T,#FFAAAA) >>
+
+title ER Diagram for Smart Home System
+
+'Entities
+entity "User" as user {
+    * id : Long
+    --
+    * name : String
+    * email : String
+}
+
+entity "Home" as home {
+    * id : Long
+    --
+    * address : String
+    * name : String
+}
+
+entity "Device" as device {
+    * id : Long
+    --
+    * name : String
+    * type : String
+}
+
+entity "Telemetry" as telemetry {
+    * id : Long
+    --
+    * timestamp : LocalDateTime
+    * value : String
+}
+
+entity "Module" as module {
+    * id : Long
+    --
+    * name : String
+    * description : String
+}
+
+'Relationships
+user --o{ home : "can access many"
+home --o{ device : "contains many"
+device --o{ telemetry : "generates many"
+device --o{ module : "can be part of many"
+
+@enduml

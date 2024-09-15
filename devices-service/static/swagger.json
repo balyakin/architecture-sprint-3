@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API для управления устройствами",
+    "version": "1.0.0",
+    "title": "Device Management API"
+  },
+  "paths": {
+    "/devices/{device_id}": {
+      "get": {
+        "summary": "Получить информацию об устройстве",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Информация об устройстве"
+          },
+          "404": {
+            "description": "Устройство не найдено"
+          }
+        }
+      }
+    },
+    "/devices/{device_id}/status": {
+      "put": {
+        "summary": "Обновить состояние устройства",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "status",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "on"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Состояние устройства обновлено"
+          },
+          "404": {
+            "description": "Устройство не найдено"
+          }
+        }
+      }
+    },
+    "/devices/{device_id}/commands": {
+      "post": {
+        "summary": "Отправить команду устройству",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "command",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "set temperature to 22"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Команда отправлена"
+          },
+          "404": {
+            "description": "Устройство не найдено"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API для телеметрии устройств",
+    "version": "1.0.0",
+    "title": "Telemetry Service API"
+  },
+  "paths": {
+    "/devices/{device_id}/telemetry/latest": {
+      "get": {
+        "summary": "Получить последнее значение телеметрии устройства",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Последнее значение телеметрии"
+          },
+          "404": {
+            "description": "Данные телеметрии для устройства не найдены"
+          }
+        }
+      }
+    },
+    "/devices/{device_id}/telemetry": {
+      "get": {
+        "summary": "Получить исторические данные телеметрии устройства",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Начальное время в формате ISO"
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Конечное время в формате ISO"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Исторические данные телеметрии"
+          },
+          "404": {
+            "description": "Данные телеметрии для устройства не найдены"
+          }
+        }
+      }
+    }
+  }
+}

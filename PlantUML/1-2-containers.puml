@@ -1,0 +1,31 @@
+
+@startuml
+!define C4Container
+!define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl C4PlantUML
+
+title Smart Home System - Container Diagram
+
+'Participants
+Person(user, "User", "Interacts with the system")
+
+System_Boundary(smartHomeSystem, "Smart Home System") {
+    Container(webApp, "Smart Home Monolithic Application", "Spring Boot Application", "Manages smart home devices and interacts with sensors")
+    Container(telemetryService, "Telemetry Microservice", "Java Spring Boot", "Processes telemetry data from devices")
+    Container(devicesService, "Devices Microservice", "Java Spring Boot", "Manages connected devices")
+    Container(kafkaBroker, "Kafka", "Message Broker", "Facilitates communication between services")
+}
+
+'External systems
+System_Ext(sensor, "Temperature Sensors", "Sensors providing temperature data")
+System_Ext(heatingSystem, "Heating System", "Heating system controlled by the application")
+
+'Relationships
+Rel(user, webApp, "Uses", "HTTP/REST")
+Rel(webApp, sensor, "Receives temperature data", "REST API")
+Rel(webApp, heatingSystem, "Controls heating system", "REST API")
+Rel(webApp, kafkaBroker, "Produces events to", "Kafka")
+Rel(kafkaBroker, telemetryService, "Consuming events from", "Kafka")
+Rel(kafkaBroker, devicesService, "Consuming events from", "Kafka")
+
+@enduml
