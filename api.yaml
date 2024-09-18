@@ -39,6 +39,14 @@ paths:
                     example: house-456
         '404':
           description: Device not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Device not found"
 
   /devices/{device_id}/status:
     put:
@@ -66,8 +74,24 @@ paths:
           description: Device status updated successfully
         '400':
           description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid request"
         '404':
           description: Device not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Device not found"
 
   /devices/{device_id}/commands:
     post:
@@ -97,8 +121,24 @@ paths:
           description: Command sent successfully
         '400':
           description: Invalid command
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid command"
         '404':
           description: Device not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Device not found"
 
   /telemetry/{device_id}/telemetry/latest:
     get:
@@ -133,6 +173,14 @@ paths:
                         example: 40
         '404':
           description: Device or telemetry data not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Telemetry data not found"
 
   /telemetry/{device_id}/telemetry:
     get:
@@ -147,6 +195,7 @@ paths:
         - name: start_date
           in: query
           required: true
+          description: Start date of the telemetry data (format YYYY-MM-DD).
           schema:
             type: string
             format: date
@@ -154,6 +203,7 @@ paths:
         - name: end_date
           in: query
           required: true
+          description: End date of the telemetry data (format YYYY-MM-DD).
           schema:
             type: string
             format: date
@@ -183,3 +233,11 @@ paths:
                           example: 38
         '404':
           description: Device or telemetry data not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Telemetry data not found"
