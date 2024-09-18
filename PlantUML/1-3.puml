@@ -1,49 +1,68 @@
-
 @startuml
-!define Table(x) class x as "x" << (T,#FFAAAA) >>
+title Smart Home System - ER Diagram
 
-title ER Diagram for Smart Home System
-
-'Entities
-entity "User" as user {
-    * id : Long
+entity "User" as User {
+    *id: UUID
     --
-    * name : String
-    * email : String
+    username: String
+    email: String
+    password: String
+    role: String
+    created_at: DateTime
+    updated_at: DateTime
 }
 
-entity "Home" as home {
-    * id : Long
+entity "House" as House {
+    *id: UUID
     --
-    * address : String
-    * name : String
+    name: String
+    address: String
+    owner_id: UUID
+    created_at: DateTime
+    updated_at: DateTime
 }
 
-entity "Device" as device {
-    * id : Long
+entity "Device" as Device {
+    *id: UUID
     --
-    * name : String
-    * type : String
+    name: String
+    serial_number: String
+    status: String
+    type_id: UUID
+    house_id: UUID
+    created_at: DateTime
+    updated_at: DateTime
 }
 
-entity "Telemetry" as telemetry {
-    * id : Long
+entity "DeviceType" as DeviceType {
+    *id: UUID
     --
-    * timestamp : LocalDateTime
-    * value : String
+    name: String
+    module_id: UUID
+    description: String
 }
 
-entity "Module" as module {
-    * id : Long
+entity "Module" as Module {
+    *id: UUID
     --
-    * name : String
-    * description : String
+    name: String
+    description: String
 }
 
-'Relationships
-user --o{ home : "can access many"
-home --o{ device : "contains many"
-device --o{ telemetry : "generates many"
-device --o{ module : "can be part of many"
+entity "TelemetryData" as TelemetryData {
+    *id: UUID
+    --
+    device_id: UUID
+    timestamp: DateTime
+    data: String
+    created_at: DateTime
+}
+
+' Relationships
+User ||--o{ House : "owns"
+House ||--o{ Device : "has"
+DeviceType ||--o{ Device : "is type of"
+Module ||--o{ DeviceType : "contains"
+Device ||--o{ TelemetryData : "produces"
 
 @enduml

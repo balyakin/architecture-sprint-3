@@ -1,4 +1,3 @@
-
 @startuml
 !define C4Container
 !define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
@@ -10,22 +9,41 @@ title Smart Home System - Container Diagram
 Person(user, "User", "Interacts with the system")
 
 System_Boundary(smartHomeSystem, "Smart Home System") {
-    Container(webApp, "Smart Home Monolithic Application", "Spring Boot Application", "Manages smart home devices and interacts with sensors")
-    Container(telemetryService, "Telemetry Microservice", "Java Spring Boot", "Processes telemetry data from devices")
-    Container(devicesService, "Devices Microservice", "Java Spring Boot", "Manages connected devices")
-    Container(kafkaBroker, "Kafka", "Message Broker", "Facilitates communication between services")
+    Container(webApp, "Smart Home Monolithic Application", "Spring Boot Application", "Handles business logic and interacts with external systems")
+    Container(telemetryService, "Telemetry Microservice", "Java Spring Boot", "Processes telemetry data from devices and stores it")
+    Container(devicesService, "Devices Microservice", "Java Spring Boot", "Manages connected devices and their states")
+    Container(kafkaBroker, "Kafka", "Message Broker", "Facilitates asynchronous communication between services")
+
+    ' Internal Data Stores
+    ContainerDb(telemetryDb, "Telemetry Database", "PostgreSQL", "Stores telemetry data")
+    ContainerDb(devicesDb, "Devices Database", "PostgreSQL", "Stores device information and states")
 }
 
 'External systems
-System_Ext(sensor, "Temperature Sensors", "Sensors providing temperature data")
-System_Ext(heatingSystem, "Heating System", "Heating system controlled by the application")
+System_Ext(sensor, "Temperature Sensors", "Devices that provide telemetry data")
+System_Ext(device, "Smart Device", "Devices controlled by the system (e.g., heating, lighting)")
 
 'Relationships
 Rel(user, webApp, "Uses", "HTTP/REST")
-Rel(webApp, sensor, "Receives temperature data", "REST API")
-Rel(webApp, heatingSystem, "Controls heating system", "REST API")
-Rel(webApp, kafkaBroker, "Produces events to", "Kafka")
-Rel(kafkaBroker, telemetryService, "Consuming events from", "Kafka")
-Rel(kafkaBroker, devicesService, "Consuming events from", "Kafka")
+
+' Monolithic Application interactions via Kafka
+Rel(webApp, kafkaBroker, "Produces and consumes events", "Kafka")
+
+' Telemetry flow
+Rel(sensor, kafkaBroker, "Sends telemetry data", "Kafka")
+Rel(kafkaBroker, telemetryService, "Consumes telemetry data", "Kafka")
+Rel(telemetryService, telemetryDb, "Stores processed telemetry data", "JDBC")
+Rel(telemetryService, kafkaBroker, "Publishes processed telemetry", "Kafka")
+Rel(kafkaBroker, webApp, "Consumes telemetry data for UI/analysis", "Kafka")
+
+' Device management flow
+Rel(webApp, kafkaBroker, "Publishes device control commands", "Kafka")
+Rel(kafkaBroker, devicesService, "Consumes device control commands", "Kafka")
+Rel(devicesService, kafkaBroker, "Publishes device status updates", "Kafka")
+Rel(kafkaBroker, webApp, "Consumes device status updates", "Kafka")
+Rel(devicesService, devicesDb, "Stores device states", "JDBC")
+
+' Device interactions
+Rel(device, kafkaBroker, "Receives commands and sends status updates", "Kafka")
 
 @enduml

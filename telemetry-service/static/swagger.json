@@ -1,65 +1,71 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.0",
   "info": {
-    "description": "API для телеметрии устройств",
-    "version": "1.0.0",
-    "title": "Telemetry Service API"
+    "title": "Telemetry Service API",
+    "version": "1.0.0"
   },
   "paths": {
-    "/devices/{device_id}/telemetry/latest": {
+    "/telemetry/{device_id}/telemetry/latest": {
       "get": {
-        "summary": "Получить последнее значение телеметрии устройства",
+        "summary": "Get Latest Telemetry Data",
+        "description": "Returns the latest telemetry data for the specified device.",
         "parameters": [
           {
             "name": "device_id",
             "in": "path",
             "required": true,
-            "type": "integer"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Последнее значение телеметрии"
+            "description": "Latest telemetry data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Данные телеметрии для устройства не найдены"
+            "description": "Device not found"
           }
         }
       }
     },
-    "/devices/{device_id}/telemetry": {
+    "/telemetry/{device_id}/telemetry": {
       "get": {
-        "summary": "Получить исторические данные телеметрии устройства",
+        "summary": "Get Historical Telemetry Data",
+        "description": "Returns historical telemetry data for the specified device.",
         "parameters": [
           {
             "name": "device_id",
             "in": "path",
             "required": true,
-            "type": "integer"
-          },
-          {
-            "name": "start_time",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "format": "date-time",
-            "description": "Начальное время в формате ISO"
-          },
-          {
-            "name": "end_time",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "format": "date-time",
-            "description": "Конечное время в формате ISO"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Исторические данные телеметрии"
+            "description": "Historical telemetry data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           },
           "404": {
-            "description": "Данные телеметрии для устройства не найдены"
+            "description": "Device not found"
           }
         }
       }

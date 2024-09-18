@@ -1,22 +1,185 @@
 openapi: 3.0.0
 info:
-  title: simple-api
-  version: 0.1.0
+  title: Smart Home API
+  version: 1.0.0
 
 paths:
-  /hello:
+  /devices/{device_id}:
     get:
+      summary: Get Device Info
+      description: Returns detailed information about a specific device by its ID.
+      parameters:
+        - name: device_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
-          description: A simple hello world!
+          description: A detailed device information
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-              example: Hello from a mocked response!
-      x-kusk:
-        upstream:
-          service:
-            name: hello-world-svc
-            namespace: default
-            port: 8080
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: device-123
+                  name:
+                    type: string
+                    example: "Living Room Thermostat"
+                  type:
+                    type: string
+                    example: "Thermostat"
+                  status:
+                    type: string
+                    example: "on"
+                  house_id:
+                    type: string
+                    example: house-456
+        '404':
+          description: Device not found
+
+  /devices/{device_id}/status:
+    put:
+      summary: Update Device Status
+      description: Allows changing the status of a device (e.g., on/off).
+      parameters:
+        - name: device_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [on, off]
+                  example: "on"
+      responses:
+        '200':
+          description: Device status updated successfully
+        '400':
+          description: Invalid request
+        '404':
+          description: Device not found
+
+  /devices/{device_id}/commands:
+    post:
+      summary: Send Command to Device
+      description: Sends a command to the device (e.g., "set temperature to 22 degrees").
+      parameters:
+        - name: device_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  example: "set_temperature"
+                value:
+                  type: number
+                  example: 22
+      responses:
+        '200':
+          description: Command sent successfully
+        '400':
+          description: Invalid command
+        '404':
+          description: Device not found
+
+  /telemetry/{device_id}/telemetry/latest:
+    get:
+      summary: Get Latest Telemetry Data
+      description: Returns the latest telemetry data for the specified device.
+      parameters:
+        - name: device_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Latest telemetry data for the device
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: "2024-09-18T12:34:56Z"
+                  data:
+                    type: object
+                    properties:
+                      temperature:
+                        type: number
+                        example: 22.5
+                      humidity:
+                        type: number
+                        example: 40
+        '404':
+          description: Device or telemetry data not found
+
+  /telemetry/{device_id}/telemetry:
+    get:
+      summary: Get Historical Telemetry Data
+      description: Returns historical telemetry data for the specified device over a certain period of time.
+      parameters:
+        - name: device_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2024-01-01"
+        - name: end_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2024-01-31"
+      responses:
+        '200':
+          description: Historical telemetry data for the device
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    timestamp:
+                      type: string
+                      format: date-time
+                      example: "2024-09-18T12:00:00Z"
+                    data:
+                      type: object
+                      properties:
+                        temperature:
+                          type: number
+                          example: 21.0
+                        humidity:
+                          type: number
+                          example: 38
+        '404':
+          description: Device or telemetry data not found
