@@ -87,6 +87,7 @@ services:
       - kong-database
     networks:
       - kong-network
+    restart: on-failure
 
 networks:
   kong-network:
