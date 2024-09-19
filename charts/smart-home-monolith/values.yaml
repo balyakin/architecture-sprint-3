@@ -107,3 +107,14 @@ postgresql:
     username: your_username
     password: your_password
     database: smart_home
+
+kafka:
+  enabled: true
+  external:
+    enabled: false
+  zookeeper:
+    enabled: true
+  replicaCount: 1
+  image:
+    repository: bitnami/kafka
+    tag: latest

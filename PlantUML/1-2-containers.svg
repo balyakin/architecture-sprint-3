@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1243px" preserveAspectRatio="none" style="width:1139px;height:1243px;background:#FFFFFF;" version="1.1" viewBox="0 0 1139 1243" width="1139px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" style="stroke:none;stroke-width:1.0;" width="331" x="397.25" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="321" x="402.25" y="22.9951">Smart Home System - Container Diagram</text><!--MD5=[03ffbdfbd37362cbb369a8c9558b1525]
+cluster smartHomeSystem--><g id="cluster_smartHomeSystem"><rect fill="none" height="971" rx="2.5" ry="2.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="911" x="7" y="266.2969"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="181" x="372" y="303.1484">Smart Home System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="431.5" y="318.0605">[System]</text></g><!--MD5=[5d6dbbd7e3ad527ac67d257ab33183fc]
+entity webApp--><g id="elem_webApp"><rect fill="#438DD5" height="150.375" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="213" x="222.5" y="346.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="292" y="367.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="109" x="271.5" y="385.6172">Smart Home</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="192" x="233" y="404.2422">Monolithic Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="156" x="251" y="419.1543">[Spring Boot Application]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="327" y="434.9795"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="232.5" y="451.2764">Handles business logic and</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="251.5" y="467.5732">interacts with external</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="300" y="483.8701">systems</text></g><!--MD5=[1114642ac1385f3a5d5946b4c0b4d791]
+entity telemetryService--><g id="elem_telemetryService"><rect fill="#438DD5" height="134.0781" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="200" x="62" y="852.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="125" y="873.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="90" x="114" y="891.1172">Telemetry</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="113" x="105.5" y="909.7422">Microservice</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="106" y="924.6543">[Java Spring Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="160" y="940.4795"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="72" y="956.7764">Processes telemetry data</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="81" y="973.0732">from Kafka and stores it</text></g><!--MD5=[ac4469963762d99b70252d9ac664fa72]
+entity devicesService--><g id="elem_devicesService"><rect fill="#438DD5" height="131.75" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="208" x="335" y="853.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="402" y="874.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="188" x="345" y="892.1172">Devices Microservice</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="383" y="907.0293">[Java Spring Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="437" y="922.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="376" y="939.1514">Processes device</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="345.5" y="955.4482">commands from Kafka and</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="359" y="971.7451">manages device states</text></g><!--MD5=[3797026d89e46c96d2271a49b412df91]
+entity kafkaBroker--><g id="elem_kafkaBroker"><rect fill="#438DD5" height="131.75" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="195" x="341.5" y="609.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="402" y="630.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="49" x="414.5" y="648.1172">Kafka</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="111" x="383.5" y="663.0293">[Message Broker]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="437" y="678.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="352" y="695.1514">Facilitates asynchronous</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="351.5" y="711.4482">communication between</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="410.5" y="727.7451">services</text></g><!--MD5=[cc68b4625cd5dc773fb395972b39fea8]
+entity deviceCommService--><g id="elem_deviceCommService"><rect fill="#438DD5" height="150.375" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="220" x="668" y="844.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="741" y="865.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="200" x="678" y="883.1172">Device Communication</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="65" x="745.5" y="901.7422">Service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="722" y="916.6543">[Java Spring Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="776" y="932.4795"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="703.5" y="948.7764">Interacts directly with</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="685" y="965.0732">devices and sends data to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="759.5" y="981.3701">Kafka</text></g><!--MD5=[abd99ccc2d452dfa5517e7db5d99ad28]
+entity telemetryCommService--><g id="elem_telemetryCommService"><rect fill="#438DD5" height="169" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="206" x="589" y="337.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="655" y="358.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="90" x="644" y="376.1172">Telemetry</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="135" x="621.5" y="394.7422">Communication</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="65" x="659.5" y="413.3672">Service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="636" y="428.2793">[Java Spring Boot]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="690" y="444.1045"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="599" y="460.4014">Interacts with sensors and</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="608" y="476.6982">sends telemetry data to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="673.5" y="492.9951">Kafka</text></g><!--MD5=[7506d073ee41430cc40959cf1e7c6675]
+entity telemetryDb--><g id="elem_telemetryDb"><path d="M62.5,1115.2969 C62.5,1105.2969 162,1105.2969 162,1105.2969 C162,1105.2969 261.5,1105.2969 261.5,1115.2969 L261.5,1203.4531 C261.5,1213.4531 162,1213.4531 162,1213.4531 C162,1213.4531 62.5,1213.4531 62.5,1203.4531 L62.5,1115.2969 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><path d="M62.5,1115.2969 C62.5,1125.2969 162,1125.2969 162,1125.2969 C162,1125.2969 261.5,1125.2969 261.5,1115.2969 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="125" y="1140.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="179" x="72.5" y="1158.1172">Telemetry Database</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="82" x="121" y="1173.0293">[PostgreSQL]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="160" y="1188.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="88" y="1205.1514">Stores telemetry data</text></g><!--MD5=[3c1f6c3635f211025b7c035cdee8d87d]
+entity devicesDb--><g id="elem_devicesDb"><path d="M339.5,1107.2969 C339.5,1097.2969 439,1097.2969 439,1097.2969 C439,1097.2969 538.5,1097.2969 538.5,1107.2969 L538.5,1211.75 C538.5,1221.75 439,1221.75 439,1221.75 C439,1221.75 339.5,1221.75 339.5,1211.75 L339.5,1107.2969 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><path d="M339.5,1107.2969 C339.5,1117.2969 439,1117.2969 439,1117.2969 C439,1117.2969 538.5,1117.2969 538.5,1107.2969 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="74" x="402" y="1132.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="158" x="360" y="1150.1172">Devices Database</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="82" x="398" y="1165.0293">[PostgreSQL]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="437" y="1180.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="349.5" y="1197.1514">Stores device information</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="402.5" y="1213.4482">and states</text></g><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><g id="elem_user"><rect fill="#08427B" height="133.1875" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="193" x="232.5" y="44.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="58" x="300" y="65.4355">«person»</text><image height="48" width="48" x="305" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAACD0lEQVR4Xu2YoU4EMRCGT+4j8Ai8AhaH4QHgAUjQuFMECUgMIUgwJAgMhgQsAYUiJCiQIBBY+EITsjfTdme6V24v4c8vyGbb+ZjOtN0bNcvjQXmkH83WvYBWto6PLm6v7p7uH1/w2fXD+PBycX1Pv2l3IdDm/vn7x+dXQiAubRzoURa7gRZWd0iGRIiJbOnhnfYBQZNJjNbuyY2eJG8fkDE3bbG4ep6MHUAsgYxmE3nVs6VsBWJSGccsOlFPmLIViMzLOB7pCVO2AtHJMohH7Fh6zqitQK7m0rJvAVYgGcEpe//PLdDz65sM4pF9N7ICcXDKIB5Nv6j7tD0NoSdM2QrU9Gg0ewE1LqBhHR3BBdvj2vapnidjHxD/q6vd7Pvhr31AwcY8eXMTXAKECZZJFXuEq27aLgQK5uLMohCenGGuGewOxSjBvYBqeG6B+Nqiblggdjnc+ZXDy+FNFpFzw76O3UBAROuXh6FoiAcf5g9eTvUgzy0nWg6I8cXHRUpg5bOVBCo+KDpFajOf23GgPme7RSQ+lacIENUgJ6gg1k6HjgOlqnLqip4tEuhv0hNEMXUD0clyXE3p6pZA0S2nnvTlXwLJEZWlb7cTQH1+USgTN4VhAenm/wea1OCAOmqo6fE1WCb9WSKBah+rbUWPWAmE2Rvk0ApiB45eOyNAzU8xcTvj8KvkKEoOaIYeHNA3ZuygAvFMUO0AAAAASUVORK5CYII=" y="68.2656"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="41" x="308.5" y="131.1172">User</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="327" y="147.8857"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="242.5" y="164.1826">Interacts with the system</text></g><!--MD5=[88723051146da09166554e42ec8ff111]
+entity sensor--><g id="elem_sensor"><rect fill="#999999" height="101.4844" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="214" x="585" y="60.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115" x="634.5" y="81.4355">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="194" x="595" y="99.1172">Temperature Sensors</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="690" y="115.8857"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="619.5" y="132.1826">Devices that provide</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="642.5" y="148.4795">telemetry data</text></g><!--MD5=[002537d386d1f68a9aa978f7fb49d1b7]
+entity device--><g id="elem_device"><rect fill="#999999" height="117.7813" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="199" x="934.5" y="1100.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115" x="976.5" y="1121.4355">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="118" x="975" y="1139.1172">Smart Device</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1032" y="1155.8857"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="944.5" y="1172.1826">Devices controlled by the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="957.5" y="1188.4795">system (e.g., heating,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="1006.5" y="1204.7764">lighting)</text></g><!--MD5=[0d25fa5f37559f4e955459ca4627bb8e]
+link user to webApp--><g id="link_user_webApp"><path d="M329,177.3269 C329,224.3169 329,287.9569 329,338.3869 " fill="none" id="user-to-webApp" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="329,346.6869,332,338.6869,326,338.6869,329,346.6869" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="35" x="350.5" y="226.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="76" x="330" y="240.4043">[HTTP/REST]</text></g><!--MD5=[b08bd73fb373fe981e2d83cfcc019f10]
+link webApp to kafkaBroker--><g id="link_webApp_kafkaBroker"><path d="M222.45,470.0869 C173.16,498.8169 131.38,537.8769 161,579.2969 C199.97,633.7969 272.14,657.3769 333.17,667.4269 " fill="none" id="webApp-to-kafkaBroker" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="341.32,668.6969,333.876,664.5032,332.954,670.4319,341.32,668.6969" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="97" x="173" y="548.4355">Produces and</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="123" x="162" y="562.4043">consumes events</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="201.5" y="576.373">[Kafka]</text></g><!--MD5=[2eaeb7396c37feedf62e32f4d4eaf0cd]
+link kafkaBroker to webApp--><g id="link_kafkaBroker_webApp"><path d="M464.51,608.9769 C469.93,585.2669 471.32,558.7869 461,536.2969 C455.57,524.4669 448.23,513.4069 439.78,503.1869 " fill="none" id="kafkaBroker-to-webApp" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="434.38,496.9369,437.3365,504.953,441.8784,501.0324,434.38,496.9369" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="146" x="469" y="548.4355">Consumes telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="138" x="475" y="562.4043">data for UI/analysis</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="522" y="576.373">[Kafka]</text></g><!--MD5=[b08bd73fb373fe981e2d83cfcc019f10]
+link webApp to kafkaBroker--><g id="link_webApp_kafkaBroker"><path d="M311.54,496.9769 C308.75,524.0269 310.02,554.1269 322,579.2969 C325.92,587.5269 330.94,595.2769 336.68,602.5269 " fill="none" id="webApp-to-kafkaBroker-1" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="342.16,609.0369,339.3063,600.9835,334.7146,604.8457,342.16,609.0369" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="118" x="326.5" y="548.4355">Publishes device</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="129" x="323" y="562.4043">control commands</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="365.5" y="576.373">[Kafka]</text></g><!--MD5=[44c3478549065e82c2392a39368d9406]
+link sensor to telemetryCommService--><g id="link_sensor_telemetryCommService"><path d="M692,161.4469 C692,206.5669 692,274.2769 692,329.2069 " fill="none" id="sensor-to-telemetryCommService" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="692,337.2069,695,329.2069,689,329.2069,692,337.2069" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="117" x="693" y="219.4355">Sends telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="33" x="737" y="233.4043">data</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="76" x="715.5" y="247.373">[HTTP/REST]</text></g><!--MD5=[52faeb37efbe63fab867d94ff5bdf139]
+link telemetryCommService to kafkaBroker--><g id="link_telemetryCommService_kafkaBroker"><path d="M670.37,506.3469 C660.64,531.9969 646.94,558.8269 628,579.2969 C605.12,604.0269 574.37,623.2269 544.33,637.6869 " fill="none" id="telemetryCommService-to-kafkaBroker" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="536.72,641.2669,545.2366,640.583,542.687,635.1517,536.72,641.2669" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="142" x="657" y="548.4355">Publishes telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="33" x="713.5" y="562.4043">data</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="708" y="576.373">[Kafka]</text></g><!--MD5=[cd94d31533c1dfc6c60157a0f19da281]
+link kafkaBroker to telemetryService--><g id="link_kafkaBroker_telemetryService"><path d="M341.17,686.8669 C239.35,700.1169 89.92,726.6769 55,771.2969 C36.26,795.2469 46.77,821.9869 67.18,846.0269 " fill="none" id="kafkaBroker-to-telemetryService" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="72.57,852.0769,69.482,844.1104,65.0052,848.1053,72.57,852.0769" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="146" x="56" y="783.4355">Consumes telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="33" x="114.5" y="797.4043">data</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="109" y="811.373">[Kafka]</text></g><!--MD5=[905cf204f0c03514c291cb17417e6e69]
+link telemetryService to kafkaBroker--><g id="link_telemetryService_kafkaBroker"><path d="M206.14,851.9769 C226.09,824.9969 251.19,794.7169 278,771.2969 C295.06,756.3969 314.77,742.5669 334.44,730.3269 " fill="none" id="telemetryService-to-kafkaBroker" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="341.38,726.0569,332.9916,727.68,336.1272,732.7954,341.38,726.0569" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="147" x="279" y="783.4355">Publishes processed</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="69" x="318" y="797.4043">telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="330.5" y="811.373">[Kafka]</text></g><!--MD5=[924a359d8adb05574b80251f23dbe468]
+link telemetryService to telemetryDb--><g id="link_telemetryService_telemetryDb"><path d="M162,986.5969 C162,1021.0869 162,1062.9769 162,1096.7469 " fill="none" id="telemetryService-to-telemetryDb" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="162,1105.1469,165,1097.1469,159,1097.1469,162,1105.1469" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="125" x="163" y="1036.4355">Stores processed</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="106" x="174.5" y="1050.4043">telemetry data</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="38" x="208.5" y="1064.373">[JDBC]</text></g><!--MD5=[bb0ad0ab5a3c9f17c8b699a41669cdc3]
+link kafkaBroker to deviceCommService--><g id="link_kafkaBroker_deviceCommService"><path d="M533.1,741.4569 C545.21,751.0269 557.16,761.1069 568,771.2969 C586.16,788.3669 585.04,798.1169 604,814.2969 C621.36,829.1069 641.1,843.0869 660.89,855.7169 " fill="none" id="kafkaBroker-to-deviceCommService" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="667.88,860.1169,662.7143,853.3113,659.5131,858.386,667.88,860.1169" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="122" x="606.5" y="783.4355">Consumes device</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="129" x="605" y="797.4043">control commands</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="647.5" y="811.373">[Kafka]</text></g><!--MD5=[439ea7fd14d08cf805b97c11f51ce274]
+link deviceCommService to kafkaBroker--><g id="link_deviceCommService_kafkaBroker"><path d="M772.9,844.2469 C767.65,818.3469 757.68,790.8769 739,771.2969 C688.65,718.5069 609.2,694.9369 544.7,684.4769 " fill="none" id="deviceCommService-to-kafkaBroker" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="536.51,683.1969,543.954,687.3906,544.876,681.4619,536.51,683.1969" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="118" x="765" y="783.4355">Publishes device</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="109" x="771.5" y="797.4043">status updates</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="804" y="811.373">[Kafka]</text></g><!--MD5=[e6317ea2f9db4a05584c09e3a6fba386]
+link deviceCommService to device--><g id="link_deviceCommService_device"><path d="M857.6,994.2969 C892.14,1026.4169 932.2,1063.6569 965.41,1094.5269 " fill="none" id="deviceCommService-to-device" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="971.52,1100.2169,967.7019,1092.5735,963.6175,1096.9687,971.52,1100.2169" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="99" x="929" y="1036.4355">Interacts with</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="53" x="954" y="1050.4043">devices</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="76" x="942.5" y="1064.373">[HTTP/REST]</text></g><!--MD5=[0fb8b78447fa8317f38fcab03856c4ae]
+link kafkaBroker to devicesService--><g id="link_kafkaBroker_devicesService"><path d="M436.67,741.4469 C436.39,751.4469 436.15,761.6469 436,771.2969 C435.62,795.2669 435.92,821.4369 436.46,844.9669 " fill="none" id="kafkaBroker-to-devicesService" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="436.66,853.1669,439.4732,845.0993,433.4748,845.2388,436.66,853.1669" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="122" x="437" y="783.4355">Consumes device</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="109" x="445.5" y="797.4043">status updates</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="44" x="478" y="811.373">[Kafka]</text></g><!--MD5=[815adcf830348dd19a495518a69de1dc]
+link devicesService to devicesDb--><g id="link_devicesService_devicesDb"><path d="M439,985.3269 C439,1017.4269 439,1056.1769 439,1088.8569 " fill="none" id="devicesService-to-devicesDb" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="439,1097.0269,442,1089.0269,436,1089.0269,439,1097.0269" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="146" x="440" y="1043.4355">Stores device states</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="38" x="494" y="1057.4043">[JDBC]</text></g><!--MD5=[5a9e52dc4e3b77db569b8576b6310c10]
+@startuml
+!define C4Container
+!define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl C4PlantUML
+
+title Smart Home System - Container Diagram
+
+'Participants
+Person(user, "User", "Interacts with the system")
+
+System_Boundary(smartHomeSystem, "Smart Home System") {
+    Container(webApp, "Smart Home Monolithic Application", "Spring Boot Application", "Handles business logic and interacts with external systems")
+    Container(telemetryService, "Telemetry Microservice", "Java Spring Boot", "Processes telemetry data from Kafka and stores it")
+    Container(devicesService, "Devices Microservice", "Java Spring Boot", "Processes device commands from Kafka and manages device states")
+    Container(kafkaBroker, "Kafka", "Message Broker", "Facilitates asynchronous communication between services")
+
+    ' Communication Services
+    Container(deviceCommService, "Device Communication Service", "Java Spring Boot", "Interacts directly with devices and sends data to Kafka")
+    Container(telemetryCommService, "Telemetry Communication Service", "Java Spring Boot", "Interacts with sensors and sends telemetry data to Kafka")
+
+    ' Internal Data Stores
+    ContainerDb(telemetryDb, "Telemetry Database", "PostgreSQL", "Stores telemetry data")
+    ContainerDb(devicesDb, "Devices Database", "PostgreSQL", "Stores device information and states")
+}
+
+'External systems
+System_Ext(sensor, "Temperature Sensors", "Devices that provide telemetry data")
+System_Ext(device, "Smart Device", "Devices controlled by the system (e.g., heating, lighting)")
+
+'Relationships
+Rel(user, webApp, "Uses", "HTTP/REST")
+
+' Monolithic Application interactions via Kafka
+Rel(webApp, kafkaBroker, "Produces and consumes events", "Kafka")
+
+' Telemetry communication flow
+Rel(sensor, telemetryCommService, "Sends telemetry data", "HTTP/REST")
+Rel(telemetryCommService, kafkaBroker, "Publishes telemetry data", "Kafka")
+Rel(kafkaBroker, telemetryService, "Consumes telemetry data", "Kafka")
+Rel(telemetryService, telemetryDb, "Stores processed telemetry data", "JDBC")
+Rel(telemetryService, kafkaBroker, "Publishes processed telemetry", "Kafka")
+Rel(kafkaBroker, webApp, "Consumes telemetry data for UI/analysis", "Kafka")
+
+' Device management communication flow
+Rel(webApp, kafkaBroker, "Publishes device control commands", "Kafka")
+Rel(kafkaBroker, deviceCommService, "Consumes device control commands", "Kafka")
+Rel(deviceCommService, device, "Interacts with devices", "HTTP/REST")
+Rel(deviceCommService, kafkaBroker, "Publishes device status updates", "Kafka")
+Rel(kafkaBroker, devicesService, "Consumes device status updates", "Kafka")
+Rel(devicesService, devicesDb, "Stores device states", "JDBC")
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendFontColor #FFFFFF
+skinparam LegendBackgroundColor transparent
+skinparam LegendBorderColor transparent
+
+skinparam rectangle<<legendArea>> {
+    backgroundcolor transparent
+    bordercolor transparent
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+}
+
+skinparam database {
+    StereotypeFontSize 12
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+}
+
+skinparam participant {
+    StereotypeFontSize 12
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam person {
+    StereotypeFontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    style awesome
+}
+
+
+skinparam rectangle<<boundary>> {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    BorderStyle dashed
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+skinparam rectangle<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<boundary>>StereotypeFontColor transparent
+skinparam rectangle<<boundary>>StereotypeFontColor transparent
+
+    
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+    
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+    
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam participant<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam sequencebox<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam participant<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam sequencebox<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam participant<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam sequencebox<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam participant<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam sequencebox<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+    
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+    
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+sprite $robot [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000005BFFFFFFFFFFFFFFFFFFFFFE9100000000000
+0000000000AFFFFFFFFFFFFFFFFFFFFFFFFFE30000000000
+0000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFE1000000000
+000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000699405FFFFFFC427FFFFFFFFFC427FFFFFFE009982000
+008FFF705FFFFFE10006FFFFFFFE00007FFFFFE00FFFF100
+00CFFF705FFFFFA00001FFFFFFF900002FFFFFE00FFFF500
+00DFFF705FFFFFB00002FFFFFFFA00003FFFFFE00FFFF500
+00DFFF705FFFFFF4000AFFFFFFFF3000BFFFFFE00FFFF500
+00DFFF705FFFFFFFA8DFFFFFFFFFFA8DFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00CFFF705FFFFFF87777777777777777CFFFFFE00FFFF500
+008FFF705FFFFFF100000000000000009FFFFFE00FFFF100
+000699405FFFFFF76666666666666666CFFFFFE009982000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000000EFFFFFFFFFFFFFFFFFFFFFFFFFFFF7000000000
+0000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFD0000000000
+00000000004CFFFFFFFFFFFFFFFFFFFFFFFF910000000000
+000000000000011111111111111111111110000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $robot2 [48x48/16] {
+000000000000000088888888888888880000000000000000
+000000000000000AFFFFFFFFFFFFFFFFA000000000000000
+00000000000000CFFFFFFFFFFFFFFFFFFC00000000000000
+00000000000004EFFFFFFFFFFFFFFFFFFE40000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFFA0000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000004CFFFFFFFFFFFFFFFFFFC40000000000000
+000000488888848CFFFFFFFFFFFFFFFFC848888884000000
+00000CFFFFFFFFC888888888888888888CFFFFFFFFC00000
+00008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000
+0000CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC0000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0000CFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFC0000
+00008FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF80000
+00000CFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFC00000
+000000488887578888888888888888888864688884000000
+000000000000000000000000000000000000000000000000
+}
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam participant<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam sequencebox<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam participant<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam sequencebox<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam participant<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam sequencebox<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam participant<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam sequencebox<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+    
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam participant<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam sequencebox<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+    BorderStyle dashed
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+title Smart Home System - Container Diagram
+
+rectangle "<$person>\n== User\n\nInteracts with the system" <<person>> as user 
+
+  rectangle "== Smart Home System\n<size:12>[System]</size>" <<system_boundary>><<boundary>> as smartHomeSystem  {
+      rectangle "== Smart Home Monolithic Application\n//<size:12>[Spring Boot Application]</size>//\n\nHandles business logic and interacts with external systems" <<container>> as webApp
+      rectangle "== Telemetry Microservice\n//<size:12>[Java Spring Boot]</size>//\n\nProcesses telemetry data from Kafka and stores it" <<container>> as telemetryService
+      rectangle "== Devices Microservice\n//<size:12>[Java Spring Boot]</size>//\n\nProcesses device commands from Kafka and manages device states" <<container>> as devicesService
+      rectangle "== Kafka\n//<size:12>[Message Broker]</size>//\n\nFacilitates asynchronous communication between services" <<container>> as kafkaBroker
+
+      rectangle "== Device Communication Service\n//<size:12>[Java Spring Boot]</size>//\n\nInteracts directly with devices and sends data to Kafka" <<container>> as deviceCommService
+      rectangle "== Telemetry Communication Service\n//<size:12>[Java Spring Boot]</size>//\n\nInteracts with sensors and sends telemetry data to Kafka" <<container>> as telemetryCommService
+
+      database "== Telemetry Database\n//<size:12>[PostgreSQL]</size>//\n\nStores telemetry data" <<container>> as telemetryDb
+      database "== Devices Database\n//<size:12>[PostgreSQL]</size>//\n\nStores device information and states" <<container>> as devicesDb
+}
+
+  rectangle "== Temperature Sensors\n\nDevices that provide telemetry data" <<external_system>> as sensor
+  rectangle "== Smart Device\n\nDevices controlled by the system (e.g., heating, lighting)" <<external_system>> as device
+
+user - ->> webApp : **Uses**\n//<size:12>[HTTP/REST]</size>//
+
+webApp - ->> kafkaBroker : **Produces and consumes events**\n//<size:12>[Kafka]</size>//
+
+sensor - ->> telemetryCommService : **Sends telemetry data**\n//<size:12>[HTTP/REST]</size>//
+telemetryCommService - ->> kafkaBroker : **Publishes telemetry data**\n//<size:12>[Kafka]</size>//
+kafkaBroker - ->> telemetryService : **Consumes telemetry data**\n//<size:12>[Kafka]</size>//
+telemetryService - ->> telemetryDb : **Stores processed telemetry data**\n//<size:12>[JDBC]</size>//
+telemetryService - ->> kafkaBroker : **Publishes processed telemetry**\n//<size:12>[Kafka]</size>//
+kafkaBroker - ->> webApp : **Consumes telemetry data for UI/analysis**\n//<size:12>[Kafka]</size>//
+
+webApp - ->> kafkaBroker : **Publishes device control commands**\n//<size:12>[Kafka]</size>//
+kafkaBroker - ->> deviceCommService : **Consumes device control commands**\n//<size:12>[Kafka]</size>//
+deviceCommService - ->> device : **Interacts with devices**\n//<size:12>[HTTP/REST]</size>//
+deviceCommService - ->> kafkaBroker : **Publishes device status updates**\n//<size:12>[Kafka]</size>//
+kafkaBroker - ->> devicesService : **Consumes device status updates**\n//<size:12>[Kafka]</size>//
+devicesService - ->> devicesDb : **Stores device states**\n//<size:12>[JDBC]</size>//
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

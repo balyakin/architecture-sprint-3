@@ -1,0 +1,74 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Telemetry Service API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/telemetry/{device_id}/telemetry/latest": {
+      "get": {
+        "summary": "Get Latest Telemetry Data",
+        "description": "Returns the latest telemetry data for the specified device.",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest telemetry data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Device not found"
+          }
+        }
+      }
+    },
+    "/telemetry/{device_id}/telemetry": {
+      "get": {
+        "summary": "Get Historical Telemetry Data",
+        "description": "Returns historical telemetry data for the specified device.",
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical telemetry data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Device not found"
+          }
+        }
+      }
+    }
+  }
+}

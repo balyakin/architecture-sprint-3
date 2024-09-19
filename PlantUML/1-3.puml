@@ -1,0 +1,68 @@
+@startuml
+title Smart Home System - ER Diagram
+
+entity "User" as User {
+    *id: UUID
+    --
+    username: String
+    email: String
+    password: String
+    role: String
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+entity "House" as House {
+    *id: UUID
+    --
+    name: String
+    address: String
+    owner_id: UUID
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+entity "Device" as Device {
+    *id: UUID
+    --
+    name: String
+    serial_number: String
+    status: String
+    type_id: UUID
+    house_id: UUID
+    created_at: DateTime
+    updated_at: DateTime
+}
+
+entity "DeviceType" as DeviceType {
+    *id: UUID
+    --
+    name: String
+    module_id: UUID
+    description: String
+}
+
+entity "Module" as Module {
+    *id: UUID
+    --
+    name: String
+    description: String
+}
+
+entity "TelemetryData" as TelemetryData {
+    *id: UUID
+    --
+    device_id: UUID
+    timestamp: DateTime
+    data: String
+    created_at: DateTime
+}
+
+' Relationships
+User ||--o{ House : "owns"
+House ||--o{ Device : "has"
+DeviceType ||--o{ Device : "is type of"
+Module ||--o{ DeviceType : "contains"
+Device ||--o{ TelemetryData : "produces"
+
+@enduml

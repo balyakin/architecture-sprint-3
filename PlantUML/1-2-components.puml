@@ -1,0 +1,50 @@
+@startuml
+!define C4Context
+!define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!includeurl C4PlantUML
+
+title Smart Home System - Components Diagram
+
+'System container
+Container_Boundary(smartHomeSystem, "Smart Home Monolith") {
+    Component(monitoringController, "MonitoringController", "Spring REST Controller", "Handles user interactions for monitoring devices and telemetry")
+    Component(kafkaProducer, "KafkaProducer", "Kafka Producer", "Publishes commands and requests to Kafka")
+    Component(kafkaConsumerMonolith, "KafkaConsumer", "Kafka Consumer", "Consumes telemetry and device state updates from Kafka")
+    Component(telemetryUI, "TelemetryUI", "UI Component", "Displays telemetry data to users")
+    Component(deviceControlUI, "DeviceControlUI", "UI Component", "Manages device control commands from users")
+}
+
+'Telemetry Service
+Container_Boundary(telemetryService, "Telemetry Microservice") {
+    Component(telemetryProcessor, "TelemetryProcessor", "Service", "Processes telemetry data from devices and sensors")
+    Component(kafkaConsumerTelemetry, "KafkaConsumer", "Kafka Consumer", "Consumes telemetry data from Kafka")
+    Component(telemetryDatabase, "TelemetryDatabase", "Database", "Stores processed telemetry data")
+}
+
+'Devices Service
+Container_Boundary(devicesService, "Devices Microservice") {
+    Component(devicesManager, "DevicesManager", "Service", "Manages device states and sends commands")
+    Component(kafkaDevicesConsumer, "KafkaConsumer", "Kafka Consumer", "Consumes device commands from Kafka")
+    Component(kafkaDevicesProducer, "KafkaProducer", "Kafka Producer", "Publishes device state updates to Kafka")
+    Component(devicesDatabase, "DevicesDatabase", "Database", "Stores device information and state")
+}
+
+'Kafka
+System_Ext(kafka, "Kafka", "Event Streaming Platform", "Facilitates communication between services")
+
+'Relationships between components
+Rel(monitoringController, telemetryUI, "Fetches and displays telemetry data")
+Rel(deviceControlUI, monitoringController, "Sends device control commands via KafkaProducer")
+Rel(kafkaProducer, kafka, "Sends device commands and requests")
+Rel(kafka, kafkaConsumerMonolith, "Receives telemetry and device updates")
+Rel(kafkaConsumerMonolith, monitoringController, "Processes telemetry and device state updates")
+Rel(kafka, kafkaConsumerTelemetry, "Receives telemetry data")
+Rel(kafkaConsumerTelemetry, telemetryProcessor, "Processes and stores telemetry data")
+Rel(telemetryProcessor, telemetryDatabase, "Stores processed telemetry")
+Rel(kafka, kafkaDevicesConsumer, "Receives device control commands")
+Rel(kafkaDevicesConsumer, devicesManager, "Processes device control commands")
+Rel(devicesManager, kafkaDevicesProducer, "Publishes device state updates")
+Rel(kafkaDevicesProducer, kafka, "Sends device state updates to Kafka")
+Rel(devicesManager, devicesDatabase, "Stores device states")
+
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+!define C4Container
+!define C4PlantUML https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl C4PlantUML
+
+title Smart Home System - Container Diagram
+
+'Participants
+Person(user, "User", "Interacts with the system")
+
+System_Boundary(smartHomeSystem, "Smart Home System") {
+    Container(webApp, "Smart Home Monolithic Application", "Spring Boot Application", "Handles business logic and interacts with external systems")
+    Container(telemetryService, "Telemetry Microservice", "Java Spring Boot", "Processes telemetry data from Kafka and stores it")
+    Container(devicesService, "Devices Microservice", "Java Spring Boot", "Processes device commands from Kafka and manages device states")
+    Container(kafkaBroker, "Kafka", "Message Broker", "Facilitates asynchronous communication between services")
+
+    ' Communication Services
+    Container(deviceCommService, "Device Communication Service", "Java Spring Boot", "Interacts directly with devices and sends data to Kafka")
+    Container(telemetryCommService, "Telemetry Communication Service", "Java Spring Boot", "Interacts with sensors and sends telemetry data to Kafka")
+
+    ' Internal Data Stores
+    ContainerDb(telemetryDb, "Telemetry Database", "PostgreSQL", "Stores telemetry data")
+    ContainerDb(devicesDb, "Devices Database", "PostgreSQL", "Stores device information and states")
+}
+
+'External systems
+System_Ext(sensor, "Temperature Sensors", "Devices that provide telemetry data")
+System_Ext(device, "Smart Device", "Devices controlled by the system (e.g., heating, lighting)")
+
+'Relationships
+Rel(user, webApp, "Uses", "HTTP/REST")
+
+' Monolithic Application interactions via Kafka
+Rel(webApp, kafkaBroker, "Produces and consumes events", "Kafka")
+
+' Telemetry communication flow
+Rel(sensor, telemetryCommService, "Sends telemetry data", "HTTP/REST")
+Rel(telemetryCommService, kafkaBroker, "Publishes telemetry data", "Kafka")
+Rel(kafkaBroker, telemetryService, "Consumes telemetry data", "Kafka")
+Rel(telemetryService, telemetryDb, "Stores processed telemetry data", "JDBC")
+Rel(telemetryService, kafkaBroker, "Publishes processed telemetry", "Kafka")
+Rel(kafkaBroker, webApp, "Consumes telemetry data for UI/analysis", "Kafka")
+
+' Device management communication flow
+Rel(webApp, kafkaBroker, "Publishes device control commands", "Kafka")
+Rel(kafkaBroker, deviceCommService, "Consumes device control commands", "Kafka")
+Rel(deviceCommService, device, "Interacts with devices", "HTTP/REST")
+Rel(deviceCommService, kafkaBroker, "Publishes device status updates", "Kafka")
+Rel(kafkaBroker, devicesService, "Consumes device status updates", "Kafka")
+Rel(devicesService, devicesDb, "Stores device states", "JDBC")
+
+@enduml
