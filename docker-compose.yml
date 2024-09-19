@@ -12,6 +12,7 @@ services:
       - zookeeper
     networks:
       - kong-network
+    restart: on-failure
 
   zookeeper:
     image: zookeeper:latest
@@ -23,6 +24,8 @@ services:
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181  # Сервер конфигурации Zookeeper
     networks:
       - kong-network
+    depends_on:
+      - kong-database
 
   devices-service:
     build: ./devices-service
@@ -34,6 +37,7 @@ services:
       - kafka
     networks:
       - kong-network
+    restart: on-failure
 
   telemetry-service:
     build: ./telemetry-service
@@ -45,6 +49,7 @@ services:
       - kafka
     networks:
       - kong-network
+    restart: on-failure
 
   kong-database:
     image: postgres:13
@@ -75,6 +80,7 @@ services:
       - kong-database
     networks:
       - kong-network
+    restart: on-failure
 
   kong-migration:
     image: kong:latest
